@@ -7,6 +7,7 @@ function findNemo(array) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === 'nemo') {
       console.log('Found Nemo')
+      break;
     }
   }
   // let t1 = performance.now()
@@ -31,7 +32,8 @@ function funChallenge(input) {
 
 
 //( O(1) * 3) +( O(n) * 4)
-// BIG O (3+4n)
+// BIG O (3+4n) simplify to Big O(n)
+
 
 
 // What is the Big O of the below function? (Hint, you may want to go line by line)
@@ -53,4 +55,4 @@ function anotherFunChallenge(input) {
 }
 
 // (4 * O(1)) + (7 * O(n))
-// BIG O (4 + 7n)
+// BIG O (4 + 7n) simplify to Big O(n)
