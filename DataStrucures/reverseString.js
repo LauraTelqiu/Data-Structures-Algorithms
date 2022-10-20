@@ -27,4 +27,13 @@ function revers2(str) {
     return str.split("").reverse().join("");
   }
 }
+// console.log(reverse("Hi my name is Laura"));
+
+const reverse3 = str => str.split('').reverse.join('')
 console.log(reverse("Hi my name is Laura"));
+
+
+
+
+
+
