@@ -41,8 +41,8 @@ function merge(arr1, arr2) {
   return results;
 }
 
-// merge([2, 14, 99, 100], [1, 10, 50]);
-// merge([], [2, 14]);
+console.log(merge([2, 14, 99, 100], [1, 10, 50]));
+console.log(merge([], [2, 14]));
 
 // mergeSort Pseudocode:
 //  - Break up the array into halves until you have arrays that are empty or have one element.
@@ -64,4 +64,4 @@ function mergeSort(arr) {
   return merge(left, right);
 }
 
-console.log(mergeSort([14, 22, 78, 63, 74, 1, 10]));
+// console.log(mergeSort([14, 22, 78, 63, 74, 1, 10]));
