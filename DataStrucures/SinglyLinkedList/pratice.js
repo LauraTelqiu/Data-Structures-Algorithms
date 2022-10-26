@@ -79,6 +79,7 @@ class LinkedList {
     return this;
   }
   pop(value) {
+
     const newNode = new Node(value);
     newNode.next = this.head;
     this.head = newNode;
@@ -95,7 +96,7 @@ class LinkedList {
   
     */
     if (index >= this.length) {
-      return this.append(value)
+      return this.push(value)
     }
     const newNode = new Node(value);
     //     // index-1 is the index that will point to the new node
@@ -103,14 +104,14 @@ class LinkedList {
     //     //  make sure that ten points to 99.And 99 points to five.
     //     //10 -> 5 -> 16 ----> 10-> 99 -> 5-> 16
 
-    const leader = this.lookUpIndex(index - 1)
+    const leader = this.findIndex(index - 1)
     const holdingPointer = leader.next
     leader.next = newNode
     newNode.next = holdingPointer
     this.length++
     return this
   }
-  lookUpIndex(index) {
+  findIndex(index) {
     let counter = 0;
     let currentNode = this.head;
     //     //while the counter doesn't equal the index
@@ -127,27 +128,48 @@ class LinkedList {
     return currentNode;
   }
   remove(index) {
-    const leader = this.lookUpIndex(index - 1)
+    const leader = this.findIndex(index - 1)
+    const unwantedNode = leader.next
+    leader.next = unwantedNode.next
+    this.length--
+    return this
+
+
+
 
   }
   reverse() {
-
+    if (!this.head.next) {
+      return this.head;
+    }
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+    while (second) {
+      const temp = second.next;
+      second.next = first
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this;
   }
 }
-
-
-
-
 
 const myLinkedList = new LinkedList(10);
 myLinkedList.push(5);
 myLinkedList.push(16);
 myLinkedList.pop(1);
 myLinkedList.insert(2, 99);
-
-// myLinkedList.remove(2);
+myLinkedList.insert(20, 88);
+myLinkedList.printList();
+myLinkedList.remove(2);
+myLinkedList.remove(2);
+// myLinkedList.reverse();
 
 console.log(myLinkedList.printList());
+
 
 
 
