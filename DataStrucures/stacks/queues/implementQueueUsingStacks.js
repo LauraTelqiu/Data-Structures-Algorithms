@@ -97,7 +97,7 @@ class MyQueue {
     return this.popStack[this.popStack.length - 1];
   }
   empty() {
-    return !this.pushStack.length
+    return !this.pushStack.length && !this.popStack.length
 
   }
 
@@ -123,3 +123,10 @@ console.log(myQueue.empty()); // return false
 // console.log(myQueue.pop())
 // console.log(myQueue.peek())
 // console.log(myQueue.empty())
+
+// time complexity 
+//worst case we are going to have linear but we're only doing that
+//once, so our average time complexity is actually constant for our
+// pop method 
+//space is linear because as we add more input we're going to have
+//to create more space
