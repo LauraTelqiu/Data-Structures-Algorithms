@@ -14,3 +14,9 @@ function bubbleSort(array) {
 
 bubbleSort(numbers);
 console.log(numbers);
+/*
+We have two nested for loops. Giving us all of O(n^2), 
+but we're not really holding variables to another data structure 
+or holding the numbers into other data structures.
+So the space complexity is 0(1).
+*/
