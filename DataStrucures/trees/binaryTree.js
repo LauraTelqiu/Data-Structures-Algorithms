@@ -85,10 +85,10 @@ class BinarySearchTree {
 
           //Option 2: Right child which doesnt have a left child
         } else if (currentNode.right.left === null) {
-          currentNode.right.left = currentNode.left;
           if (parentNode === null) {
-            this.root = currentNode.right;
+            this.root = currentNode.left;
           } else {
+            currentNode.right.left = currentNode.left;
 
             //if parent > current, make right child of the left the parent
             if (currentNode.value < parentNode.value) {
@@ -130,31 +130,37 @@ class BinarySearchTree {
       }
     }
   }
+  BreadthFirstSearch() {
+    let currentNode = this.root;
+    let list = [];
+    let queue = [];
+    queue.push(currentNode);
+
+    while (queue.length > 0) {
+      currentNode = queue.shift();
+      list.push(currentNode.value);
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      }
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      }
+    }
+    return list;
+  }
 }
 
-
-//     9
-//  4     20
-//1  6  15  170
-
-function traverse(node) {
-  const tree = { value: node.value };
-  tree.left = node.left === null ? null : traverse(node.left);
-  tree.right = node.right === null ? null : traverse(node.right);
-  return tree;
-}
 const tree = new BinarySearchTree();
 console.log(tree.insert(9))
-console.log(tree.insert(4))
-console.log(tree.insert(6))
-console.log(tree.insert(20))
-console.log(tree.insert(170))
-console.log(tree.insert(15))
-console.log(tree.insert(1))
+console.log(tree.insert(9))
+console.log(tree.insert(9))
+console.log(tree.insert(9))
+console.log(tree.insert(9))
+console.log(tree.insert(9))
+console.log(tree.insert(9))
 
 
-
-
+console.log('BFS', tree.BreadthFirstSearch());
 
 //     9
 //  4     20
