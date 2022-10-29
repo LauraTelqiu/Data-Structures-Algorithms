@@ -148,19 +148,85 @@ class BinarySearchTree {
     }
     return list;
   }
+  BreadthFirstSearchR(queue, list) {
+    if (!queue.length) {
+      return list;
+    }
+    const currentNode = queue.shift();
+    list.push(currentNode.value);
+
+    if (currentNode.left) {
+      queue.push(currentNode.left);
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right);
+    }
+
+    return this.BreadthFirstSearchR(queue, list);
+  }
+  DFTPreOrder(currentNode, list) {
+    return traversePreOrder(this.root, []);
+  }
+  DFTPostOrder() {
+    return traversePostOrder(this.root, []);
+  }
+  DFTInOrder() {
+    return traverseInOrder(this.root, []);
+  }
 }
+
+function traversePreOrder(node, list) {
+  list.push(node.value);
+  if (node.left) {
+    traversePreOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePreOrder(node.right, list);
+  }
+  return list;
+}
+
+function traverseInOrder(node, list) {
+  if (node.left) {
+    traverseInOrder(node.left, list);
+  }
+  list.push(node.value);
+  if (node.right) {
+    traverseInOrder(node.right, list);
+  }
+  return list;
+}
+
+function traversePostOrder(node, list) {
+  if (node.left) {
+    traversePostOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePostOrder(node.right, list);
+  }
+  list.push(node.value);
+  return list;
+}
+
 
 const tree = new BinarySearchTree();
 console.log(tree.insert(9))
-console.log(tree.insert(9))
-console.log(tree.insert(9))
-console.log(tree.insert(9))
-console.log(tree.insert(9))
-console.log(tree.insert(9))
-console.log(tree.insert(9))
+console.log(tree.insert(4))
+console.log(tree.insert(6))
+console.log(tree.insert(20))
+console.log(tree.insert(170))
+console.log(tree.insert(15))
+console.log(tree.insert(1))
+// tree.remove(170);
+// JSON.stringify(traverse(tree.root))
 
 
 console.log('BFS', tree.BreadthFirstSearch());
+console.log('BFS', tree.BreadthFirstSearchR([tree.root], []))
+console.log('DFSpre', tree.DFTPreOrder());
+console.log('DFSin', tree.DFTInOrder());
+console.log('DFSpost', tree.DFTPostOrder());
+
 
 //     9
 //  4     20
