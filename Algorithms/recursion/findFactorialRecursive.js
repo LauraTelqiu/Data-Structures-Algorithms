@@ -16,14 +16,12 @@ One should use recursive, the other should just use a for loop
 //the recursive case because you want to return something at the
 //end of the function.
 
-function findFactorialRecursive(number) {
-  if (number === 2) {
-    return 2
-  }
+function findFactorialRecursive(number) {//O(n)
+
   return number * findFactorialIterative(number - 1)
 }
 
-function findFactorialIterative(number) {
+function findFactorialIterative(number) {//O(n)
   let answer = 1;
   if (number === 2) {
     answer = 2;

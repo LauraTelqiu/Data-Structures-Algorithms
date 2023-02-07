@@ -68,14 +68,13 @@ function twoSum(nums, target) {
     const pair = target - value;
     if (map[pair] !== undefined) {
       return [map[pair], i];
-
     } else {
       map[value] = i;
     }
-
   }
-
 }
-console.log(twoSum([2, 7, 11, 15], 9))
-console.log(twoSum([3, 2, 4], 6))
-console.log(twoSum([3, 3], 6))
+console.log(twoSum([2, 7, 11, 15], 9));
+console.log(twoSum([3, 2, 4], 6));
+console.log(twoSum([3, 3], 6));
+
+console.log(chatLogs([[john, 1][(maria, 2)][(john, 5)]]));

@@ -98,7 +98,8 @@ function rotateArray2(nums, k) {
       end--;
     }
   }
-  // mod K because if k is larger than the length of nums that's is going to keep on cycling
+  // mod K because if k is larger than the length of nums that's is going to
+  // keep on cycling
   k %= nums.length;
 
 
